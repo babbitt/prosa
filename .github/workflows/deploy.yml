@@ -2,7 +2,7 @@ name: Build with Gulp and Deploy static resources
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
 
   workflow_dispatch:
 

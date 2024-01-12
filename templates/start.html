@@ -3,7 +3,21 @@
   <div class='inner'>
     <p><%= t('main.start.content') %></p>
     <p><a href='#about'><%= t('main.start.learn') %></a></p>
-    <a class='round button' href='<%= auth.site %>/login/oauth/authorize?client_id=<%= auth.id %>&scope=<%- auth.scope %>'><%= t('login') %></a>
+    <% if (auth.loginMethods.includes('gatekeeper')) { %>
+      <a class='round button' href='<%= auth.site %>/login/oauth/authorize?client_id=<%= auth.id %>&scope=<%- auth.scope %>'><%= t('login') %></a>
+    <% } %>
+    <% if (auth.loginMethods && auth.loginMethods.length > 1) { %>
+      <p class="margin-y">or:</p>
+    <% } %>
+    <% if (auth.loginMethods.includes('parToken')) { %>
+      <div>
+        <label for="ghpToken">Login with Github Personal Access Token</label>
+        <input name="ghpToken" id="ghpToken" type="text" placeholder="ghp_*******************"/>
+        <a class="round button" href="#setGhpToken">Set token</a>
+      </div>
+    <% } %>
+    
+    <hr class="margin-y">
     <div class="toggle-hide">
       <a href="#scopes" class="deemphasize">Set repository access</a>
       <select>

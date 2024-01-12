@@ -17,7 +17,9 @@ module.exports = Backbone.View.extend({
 
   events: {
     'click a[href="#scopes"]': 'toggleScope',
-    'change .toggle-hide select': 'setScope'
+    'change .toggle-hide select': 'setScope',
+    'click a[href="#setGhpToken"]': 'setGhpToken',
+    'keypress input[name="ghpToken"]': 'setGhpToken'
   },
 
   template: templates.start,
@@ -25,6 +27,15 @@ module.exports = Backbone.View.extend({
   render: function() {
     this.$el.html(_.template(this.template, auth, { variable: 'auth' }));
     return this;
+  },
+
+  setGhpToken: function(e) {
+    if (e.type === 'keypress' && e.keyCode !== 13) return;
+    if (e.type === 'click') e.preventDefault();
+    var token = this.$('input[name="ghpToken"]').val();
+    if (!token) return;
+    cookie.set('oauth-token', token);
+    window.location.reload();
   },
 
   toggleScope: function(e) {

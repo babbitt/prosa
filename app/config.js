@@ -9,5 +9,5 @@ module.exports = {
   url: oauth.gatekeeperUrl,
   username: cookie.get('username'),
   auth: 'oauth',
-  loginMethods: ['gatekeeper', 'parToken'],
+  loginMethods: ['parToken'],
 };

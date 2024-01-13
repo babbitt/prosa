@@ -135,6 +135,22 @@ module.exports = Backbone.View.extend({
               data: _.extend({}, data, {lang: lang})
             });
           break;
+          case 'color':
+            view = new forms.TextForm({
+              data: _.extend({}, data, {type: 'color'})
+            });
+          break;
+          case 'date':
+            view = new forms.TextForm({
+              data: _.extend({}, data, {type: 'date'})
+            });
+          break;
+          case 'url':
+            view = new forms.TextForm({
+              data: _.extend({}, data, {type: 'url'})
+            });
+          break;
+          
 
           // On hidden values, we obviously don't have to render anything.
           // Just make sure this default is saved on the metadata object.

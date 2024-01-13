@@ -173,6 +173,10 @@ fieldset {
   }
 select,
 textarea,
+input[type=date],
+input[type=color]
+input[type=number],
+input[type=url],
 input[type=text] {
   font-size:13px;
   line-height:18px;
@@ -183,6 +187,10 @@ input[type=text] {
           border-radius:2px;
   }
 textarea,
+input[type=date],
+input[type=color]
+input[type=number],
+input[type=url],
 input[type=text],
 .dialog input[type=text] {
   background-color:#fff;
@@ -212,6 +220,10 @@ textarea#code {
   border-color:#a8afb2;
   }
   textarea:focus,
+  input[type=date]:focus,
+  input[type=color]:focus
+  input[type=number]:focus,
+  input[type=url]:focus,
   input[type=text]:focus {
     outline:thin dotted\8; /* ie8 below */
     border-color:#516066;

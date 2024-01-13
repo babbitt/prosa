@@ -169,7 +169,7 @@ gulp.task('watch', gulp.series('build-app', 'build-tests', 'css', function() {
 }));
 
 const testTask = shell.task([
-  './node_modules/mocha-phantomjs/bin/mocha-phantomjs test/index.html'
+  'npm run mocha'
 ]);
 
 gulp.task('test', gulp.series('build-tests', testTask));
